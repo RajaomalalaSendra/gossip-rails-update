@@ -1,5 +1,5 @@
 <div class="alert alert-dismissible alert-success">
-<%= form_tag url_for(action: 'update'), method: "post" do %>
+<%= form_tag url_for(action: 'update'), method: "patch" do %>
 </br>
 </br>
     <h1><span class="badge badge-primary">NEW GOSSIP</span></h1>
@@ -7,11 +7,11 @@
 	<table>
 		<tr>
 			<td><%= label_tag 'Title' %></td>
-			<td><%= text_field_tag :value => @gossip.title, 'title' %></td>	
+			<td><%= text_field_tag  'title' %></td>	
 		</tr>
 		<tr>
 			<td><%= label_tag 'Content' %></td>
-			<td><%= text_area_tag :value => @gossip.content, 'content'%></td>	
+			<td><%= text_area_tag  'content'%></td>	
 		</tr>
 		<tr>
 			<td></td>
