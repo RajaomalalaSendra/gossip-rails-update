@@ -16,8 +16,7 @@ class GossipsController < ApplicationController
     title = params[:title]
     content = params[:content]
     @gossip = Gossip.new(title: title, content: content, user_id: random)
-    @comment = Comment.new(content: params[:content_comments], user_id: 1 + rand(User.all.length), gossip_id: params[:gossip_id] )
-    if @gossip.save || @comment.save
+    if @gossip.save
       redirect_to gossips_path
     else
       render :new
