@@ -1,3 +1,18 @@
-<br/><br/><br/><br/>
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<div class="alert alert-dismissible alert-success">
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+</br>
+</br>
+    <h1><span class="badge badge-primary">NEW COMMENT</span></h1>
+
+	<table>
+		<tr>
+			<td><%= label_tag 'Content' %></td>
+			<td><%= text_area_tag "content" %></td>	
+		</tr>
+		<tr>
+			<td></td>
+			<td><%= submit_tag "create" %></td>	
+		</tr>
+	</table>
+    <% end %>
+</div>
