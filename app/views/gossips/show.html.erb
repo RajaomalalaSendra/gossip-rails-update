@@ -12,3 +12,14 @@
 		<%= submit_tag "delete" %> 
 	<% end %>
 </div>
+<!--@comments%>-->
+<div class="alert alert-dismissible alert-secondary">
+	<%= form_tag url_for(action: 'comments'), method: "post" do %>
+		<tr>
+			<td><%= text_area_tag "content" %></td>	
+		</tr>
+		<tr>
+			<td><%= submit_tag "comments" %></td>
+		</tr>
+	<% end %>
+</div>

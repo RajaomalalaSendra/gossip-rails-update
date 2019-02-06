@@ -4,15 +4,31 @@
 </br>
     <h1><span class="badge badge-primary">NEW USER</span></h1>
 
-      <%= label_tag 'First Name' %>
-      <%= text_field_tag 'first_name' %>
-      <br /> <br />
-
-      <%= label_tag 'Last Name' %>
-      <%= text_field_tag 'last_name'%>
-      <br /> <br />
-
-      <%= submit_tag "create" %>
-
+	<table>
+		<tr>
+			<td><%= label_tag 'First Name' %></td>
+			<td><%= text_field_tag "first_name" %></td>	
+		</tr>
+		<tr>
+			<td><%= label_tag 'Last Name' %></td>
+			<td><%= text_field_tag "last_name" %></td>	
+		</tr>
+		<tr>
+			<td><%= label_tag 'Description' %></td>
+			<td><%= text_area_tag "description" %></td>	
+		</tr>
+		<tr>
+			<td><%= label_tag 'Email' %></td>
+			<td><%= text_field_tag "email" %></td>	
+		</tr>
+		<tr>
+			<td><%= label_tag 'Age' %></td>
+			<td><%= text_field_tag "age" %></td>	
+		</tr>
+		<tr>
+			<td></td>
+			<td><%= submit_tag "create" %></td>	
+		</tr>
+	</table>
     <% end %>
 </div>

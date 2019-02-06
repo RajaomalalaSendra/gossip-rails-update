@@ -41,4 +41,12 @@ class GossipsController < ApplicationController
     @gossip.destroy
     redirect_to gossips_path
   end
+  def comments
+    @comment = Comment.new(content: params[:content], user_id: 1 + randgossip_id: params[:id])
+    if @comment.save
+      redirect_to gossips_path
+    else
+      render :show
+    end
+  end
 end
