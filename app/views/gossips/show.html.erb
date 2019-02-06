@@ -1,2 +1,11 @@
-<h1>Gossips#show</h1>
-<p>Find me in app/views/gossips/show.html.erb</p>
+<br/>
+<br/>
+<br/>
+<h1><span class="badge badge-primary">GOSSIP DETAILS</span></h1>
+<div class="alert alert-dismissible alert-success">
+	<p><strong>Title:</strong> <%=@gossip.title%></p>
+	<p><strong>Content:</strong> <%=@gossip.content%></p>	
+	<p><strong>Author:</strong> <%=@gossip.user.first_name%> <%=@gossip.user.last_name%></p>
+	<p><strong>City:</strong> <%=@gossip.user.city.name%></p>
+	<p><strong>Date of creation:</strong> <%=@gossip.created_at%></p>
+</div>

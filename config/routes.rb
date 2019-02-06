@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  resources 'users'
  resources 'city'
  resources  'comments'
- resources 'static_pages'
+ get '/contact', to: "static_pages#contact"
+ get '/team', to: "static_pages#team"
  root 'gossips#index'
 end
