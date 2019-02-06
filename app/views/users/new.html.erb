@@ -1,2 +1,18 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="alert alert-dismissible alert-success">
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+</br>
+</br>
+    <h1><span class="badge badge-primary">NEW USER</span></h1>
+
+      <%= label_tag 'First Name' %>
+      <%= text_field_tag 'first_name' %>
+      <br /> <br />
+
+      <%= label_tag 'Last Name' %>
+      <%= text_field_tag 'last_name'%>
+      <br /> <br />
+
+      <%= submit_tag "create" %>
+
+    <% end %>
+</div>
