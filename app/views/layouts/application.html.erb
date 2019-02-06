@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GossipRailsUpdate</title>
+    <title>GossipProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,41 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Gossip App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/static_pages/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/static_pages/team">Team</a>
+            </li>
+        </div>
+      </nav>  
+      </div>
+      
+    </header>
+    <div class="container">
+      <%= yield %>
+  
+    </div>
+    <div class="position-sticky">
+      <div class="fixed-bottom">
+       <div class="bg-dark">
+          <p class="lead">&copy; The Gossip App 2019 - Created by RajaomalalaSendra</p>
+            <hr class="my-4">
+          <p>Thank you for your supporting</p>
+        </div>  
+       </div>
+    </div>
   </body>
 </html>
