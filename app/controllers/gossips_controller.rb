@@ -29,13 +29,13 @@ class GossipsController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-    if @gossip.update(title: params[:title], content: params[:content], user_id: 1 + rand(User.all.length))
-      redirect_to gossips_path
-    else
-      render :edit
-    end
+    @gossip.update(title: params[:title], content: params[:content], user_id: 1 + rand(User.all.length), id: params[:id])
+    redirect_to gossips_path(@gossip)
   end
 
   def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to gossips_path
   end
 end

@@ -8,4 +8,5 @@
 	<p><strong>Author:</strong> <%=@gossip.user.first_name%> <%=@gossip.user.last_name%></p>
 	<p><strong>City:</strong> <%=@gossip.user.city.name%></p>
 	<p><strong>Date of creation:</strong> <%=@gossip.created_at%></p>
+	<a href="/gossips/<%=@gossip.id%>" class="btn btn-primary" role="button">delete</a>
 </div>
