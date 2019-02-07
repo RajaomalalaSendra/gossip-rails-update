@@ -39,7 +39,20 @@ class GossipsController < ApplicationController
 
   def destroy
     @gossip = Gossip.find(params[:id])
+    @gossip_comment = Comment.find_by(gossip_id: params[:gossip_id])
+    
+    t = 0
+    if @gossip_comment
+      @gossip_comment.each do |i|
+      if i.id == @gossip.comments[t]
+        @gossip_comment.destroy
+        redirect_to gossips_path
+      end
+      t += 1
+    end
+  else
     @gossip.destroy
     redirect_to gossips_path
+  end
   end
 end
