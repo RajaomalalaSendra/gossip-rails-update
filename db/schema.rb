@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_071346) do
+ActiveRecord::Schema.define(version: 2019_02_07_121716) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_06_071346) do
     t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
