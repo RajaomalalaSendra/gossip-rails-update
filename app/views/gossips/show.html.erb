@@ -13,9 +13,31 @@
 	<% end %>
 </div>
 <div class="alert alert-dismissible alert-secondary">
-	<h1>All Comments</h1>
-	<%=@gossip.comments%>
+	<h1>ALL COMMENTS</h1>
+	<%a = 1%>
+			<%if @gossip.comments.size  > 1%>
+				<%@gossip.comments.each do |i|%>
+					<%if a <= 10%>
+						<%user = @gossip.comments.find(i.id).user_id%>
+						<p><strong>Content:</strong> <%=@gossip.comments.find(i.id).content%></p>
+						<p><strong>Author:</strong> <%=User.find(user).first_name%> <%=User.find(user).last_name%></p>
+						<a href="/gossips/<%=@gossip.id%>/comments/edit" class="btn btn-dark" role="button">edit</a>	
+						<%a+=1%>
+					<%else%>
+						<%break%>
+					<%end%>
+				<%end%>
+			<%elsif @gossip.comments.size == 1%>
+				<%user = @gossip.comments.find(i.id).user_id%>
+				<p><strong>Content:</strong> <%=@gossip.comments.find(i.id).content%></p>
+				<p><strong>Author:</strong> <%=User.find(user).first_name%> <%=User.find(user).last_name%></p>
+				<a href="/gossips/<%=@gossip.id%>/comments/edit" class="btn btn-dark" role="button">edit</a>	
+			<%else%>
+				<div class="alert alert-dismissible alert-info">
+					<p>There is no comment here</p>
+				</div>
+			<%end%>
 </div>
 <div class="alert alert-dismissible alert-secondary">
-	<a href="/gossips/<%=@gossip.id%>/comments/new" class="btn btn-primary" role="button">Comments</a>
+	<a href="/gossips/<%=@gossip.id%>/comments/new" class="btn btn-primary" role="button">New Comments</a>
 </div>

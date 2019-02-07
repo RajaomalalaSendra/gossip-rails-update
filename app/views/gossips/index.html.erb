@@ -8,56 +8,31 @@
   </p>
   <p>Here are the lists of the gossip:</p>
 </div>
+
 <div class="container">
-  <% for i in 1..4 do %>
-    <div class="row">
-      <div class="column">
+  <div  class="align-items-xl-center">
+    <%a = 1%>
+    <%t = 0%>
+    <%@gossips.each do |i|%>
+      <%if a <= 10%>
+      <center>
           <div class="card bg-light mb-5" style="max-width: 30rem;">
-            <div class="card-header"><%= @gossips.find(i).created_at%></div>
+            <div class="card-header"><%= i.created_at%></div>
             <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-secondary">Author:</span> <%= @gossips.find(i).user.first_name%></h5>
-              <p class="card-text"><span class="badge badge-secondary">Title:</span> <%= @gossips.find(i).title %></p>
+            <h5 class="card-title"><span class="badge badge-secondary">Author:</span> <%= i.user.first_name%></h5>
+              <p class="card-text"><span class="badge badge-secondary">Title:</span> <%= i.title %></p>
               <span>
-                <a href="gossips/<%=i%>" class="btn btn-primary" role="button">Detail</a>            
-                <a href="/users/<%=i%>" class="btn btn-primary" role="button">User</a>
-                <a href="gossips/<%=i%>/edit" class="btn btn-primary" role="button">Edit</a>
-                <a href="/city/<%=i%>" class="btn btn-primary" role="button">City</a>
+                <a href="/gossips/<%=i.id%>" class="btn btn-primary" role="button">Detail</a>            
+                <a href="/users/<%=i.id%>" class="btn btn-primary" role="button">User</a>
+                <a href="/gossips/<%=i.id%>/edit" class="btn btn-primary" role="button">Edit</a>
+                <a href="/city/<%=i.id%>" class="btn btn-primary" role="button">City</a>
               </span>
             </div>
           </div>
-        </div>    
-      <%i+=1%>
-      <div class="column">
-          <div class="card bg-light mb-3" style="max-width: 20rem;">
-            <div class="card-header"><%= @gossips.find(i).created_at%></div>
-            <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-secondary">Author:</span> <%= @gossips.find(i).user.first_name%></h5>
-              <p class="card-text"><span class="badge badge-secondary">Title:</span> <%= @gossips.find(i).title %></p>
-              <span>
-                <a href="gossips/<%=i%>" class="btn btn-primary" role="button">Detail</a>
-                <a href="/users/<%=i%>" class="btn btn-primary" role="button">User</a>
-                <a href="gossips/<%=i%>/edit" class="btn btn-primary" role="button">Edit</a>
-                <a href="/city/<%=i%>" class="btn btn-primary" role="button">City</a>
-              </span>
-            </div>
-        </div>
-      </div>
-      <% i+=1%>
-      <div class="column">
-          <div class="card bg-light mb-3" style="max-width: 20rem;">
-            <div class="card-header"><%= @gossips.find(i).created_at%></div>
-            <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-secondary">Author:</span> <%= @gossips.find(i).user.first_name%></h5>
-              <p class="card-text"><span class="badge badge-secondary">Title:</span> <%= @gossips.find(i).title %></p>
-              <span>
-                <a href="gossips/<%=i%>" class="btn btn-primary" role="button">Detail</a>
-                <a href="/users/<%=i%>" class="btn btn-primary" role="button">User</a>
-                <a href="gossips/<%=i%>/edit" class="btn btn-primary" role="button">Edit</a>
-                <a href="/city/<%=i%>" class="btn btn-primary" role="button">City</a>
-              </span> 
-            </div>
-          </div>
-      </div>
-    </div> 
-  <% end %>
+        </center>
+      <%a+=1%>
+    <%else%>
+      <%break%>
+    <%end%>
+  <%end%>
 </div>
