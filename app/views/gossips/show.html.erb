@@ -9,10 +9,9 @@
 	<p><strong>City:</strong> <%=@gossip.user.city.name%></p>
 	<p><strong>Date of creation:</strong> <%=@gossip.created_at%></p>
 	<%= form_tag url_for(action: 'destroy'), method: "delete" do %>
-		<%= submit_tag ("DELETE",
-		class: "btn btn-danger",
-		data: {confirm: "Do you wanna delete this gossip",
-				class: "alert alert-dismissible alert-warning"} %> 
+			<%= submit_tag("DELETE",
+			:class => "btn btn-danger",
+			data: {confirm: "Do you wanna delete this gossip"}) %> 
 	<% end %>
 </div>
 <div class="alert alert-dismissible alert-secondary">
@@ -25,6 +24,7 @@
 						<p><strong>Content:</strong> <%=@gossip.comments.find(i.id).content%></p>
 						<p><strong>Author:</strong> <%=User.find(user).first_name%> <%=User.find(user).last_name%></p>
 						<a href="/gossips/<%=@gossip.id%>/comments/edit" class="btn btn-dark" role="button">edit</a>	
+						<%= link_to("delete", @gossip_comments, method: "delete", :class => "btn btn-danger", data: {confirm: "Do you wanna delete this comment"}) %> 
 						<%a+=1%>
 					<%else%>
 						<%break%>
