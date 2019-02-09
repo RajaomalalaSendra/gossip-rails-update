@@ -26,16 +26,19 @@ class CommentsController < ApplicationController
 
   def update
    @comment = Comment.new
+   @gossip = Gossip.find(params[:gossip_id])
     if @comment.update(content: params[:content], user_id: Gossip.find(params[:gossip_id]).user_id, gossip_id: params[:gossip_id])
-      redirect_to gossips_path
+      redirect_to gossips_path(@gossip)
     else
       render :new
     end
   end
 
   def destroy
-    @comment = Comment.find(params[:gossip_id])
-    @comment.delete
-    redirect_to gossips_path
+      @gossip = Gossip.find(params[:gossip_id])
+      @comment = @gossip.comments.find(params[:id])
+      @comment.destroy
+
+      redirect_to gossip_path(@gossip)
   end
 end

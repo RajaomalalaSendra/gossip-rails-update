@@ -23,8 +23,12 @@
 						<%user = @gossip.comments.find(i.id).user_id%>
 						<p><strong>Content:</strong> <%=@gossip.comments.find(i.id).content%></p>
 						<p><strong>Author:</strong> <%=User.find(user).first_name%> <%=User.find(user).last_name%></p>
-						<a href="/gossips/<%=@gossip.id%>/comments/edit" class="btn btn-dark" role="button">edit</a>	
-						<%= link_to("delete", @gossip_comment, method: "delete", :class => "btn btn-danger", data: {confirm: "Do you wanna delete this comment"}) %> 
+						<a href="/gossips/<%=@gossip.id%>/comments/edit" class="btn btn-dark" role="button">edit</a>
+						<%= link_to 'Delete Comment', 
+                             gossip_comment_path(@gossip, i), 
+                             method: :delete,
+                             data: { confirm: 'Are you sure?' }, 
+                             :class => "btn btn-danger" %>	
 						<%a+=1%>
 					<%else%>
 						<%break%>
@@ -36,6 +40,7 @@
 				</div>
 			<%end%>
 </div>
+
 <div class="alert alert-dismissible alert-secondary">
 	<a href="/gossips/<%=@gossip.id%>/comments/new" class="btn btn-primary" role="button">New Comments</a>
 </div>
